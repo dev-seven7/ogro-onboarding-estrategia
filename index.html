@@ -62,6 +62,32 @@
   .insight-block { background: var(--ember-soft); border: 1.5px solid var(--ember); border-radius: 14px; padding: 20px 22px; margin-top: 20px; }
   .insight-title { font-family: "Bebas Neue", sans-serif; font-size: 20px; color: var(--ember); margin: 0 0 10px; }
 
+  /* Relatorio: diagnostico, SWOT, pilares */
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+  .stat-box { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 10px; text-align: center; }
+  .stat-num { font-family: "Bebas Neue", sans-serif; font-size: 28px; color: var(--gold); display: block; }
+  .stat-label { font-family: "IBM Plex Mono", monospace; font-size: 9.5px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+
+  .diag-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-bottom: 16px; }
+  .bio-box { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; font-family: "IBM Plex Mono", monospace; font-size: 11.5px; color: var(--text-dim); line-height: 1.7; margin: 10px 0; }
+  .diag-card { border-left: 3px solid var(--ember); }
+  .diag-card.pos { border-left-color: var(--green); }
+  .conclusion-line { background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 16px; font-size: 13px; color: var(--text-dim); }
+  .conclusion-line strong { color: var(--text); }
+
+  .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .swot-card { border-radius: 14px; padding: 18px 20px; border: 1.5px solid var(--border); background: var(--surface); }
+  .swot-card.pos { border-color: var(--green); }
+  .swot-card.neg { border-color: var(--ember); }
+  .swot-title { font-family: "Bebas Neue", sans-serif; font-size: 19px; margin: 0 0 10px; letter-spacing: 0.01em; }
+  .swot-card.pos .swot-title { color: var(--green); }
+  .swot-card.neg .swot-title { color: var(--ember); }
+
+  .pillar-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .pillar-card { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--gold); border-radius: 12px; padding: 16px 18px; }
+  .pillar-title { font-family: "Bebas Neue", sans-serif; font-size: 19px; margin: 0 0 8px; letter-spacing: 0.01em; }
+  .pillar-tag { font-family: "IBM Plex Mono", monospace; font-size: 9.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--gold); }
+
   footer.doc-foot { margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--border); font-family: "IBM Plex Mono", monospace; font-size: 12px; color: var(--text-dim); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
 
   @media (max-width: 560px) { .page { padding: 40px 16px 72px; } .bench-grid { grid-template-columns: 1fr; } }
@@ -147,8 +173,8 @@
     <div class="ghc-grid">
       <div class="block">
         <p class="block-title">Visão</p>
-        <p><strong>22 unidades + R$1 milhão de faturamento.</strong> RJ, sem virar fastfood, padrão alto sempre.</p>
-        <p style="margin-top: 8px;"><span class="status-flag pending">Falta redigir</span> declaração de visão formal</p>
+        <p style="font-style: italic;">"Ser a hamburgueria artesanal referência do Rio de Janeiro: 22 lojas e R$1 milhão de faturamento, mantendo em cada unidade nova o mesmo padrão da primeira. Primeiro a gente acerta o nosso território, depois pensa em expansão pra fora do RJ. Crescer é inevitável, virar fastfood não: a gente nunca troca o hambúrguer honesto que fez o Ogro nascer por processo e produto vagabundo."</p>
+        <p style="margin-top: 8px; color: var(--text-dim); font-size: 12px;">Declaração formal, redigida a partir do que Jimmy e Igor bateram na Call 01 (31/08)</p>
       </div>
       <div class="block">
         <p class="block-title">Diferenciais (PUV)</p>
@@ -291,6 +317,121 @@
         <li><strong>Marketing orgânico com influenciador</strong> é o padrão de quem mais cresce (Goiko: 50K → 400K sem pagar collab)</li>
         <li><strong>Nenhum concorrente direto no Rio ocupa o território "masculino/exagerado"</strong> do arquétipo da Ogro: espaço de diferenciação real</li>
       </ul>
+    </div>
+  </section>
+
+  <!-- RELATORIO: DIAGNOSTICO + SWOT + PILARES -->
+  <section class="part">
+    <p class="part-eyebrow">Diagnóstico + Conteúdo</p>
+    <p class="part-title">RELATÓRIO DE REDES SOCIAIS</p>
+
+    <p class="block-title" style="margin-bottom: 10px;">Leitura do perfil @ogro.steaks</p>
+    <div class="stat-row">
+      <div class="stat-box"><span class="stat-num">18,2 mil</span><span class="stat-label">Seguidores</span></div>
+      <div class="stat-box"><span class="stat-num">639</span><span class="stat-label">Publicações</span></div>
+      <div class="stat-box"><span class="stat-num">78</span><span class="stat-label">Seguindo</span></div>
+      <div class="stat-box"><span class="stat-num">Médio</span><span class="stat-label">Engajamento atual</span></div>
+    </div>
+
+    <div class="diag-grid">
+      <div class="block diag-card">
+        <span class="status-flag pending">Atenção crítica</span>
+        <p class="block-title">Bio atual e gargalos</p>
+        <div class="bio-box">Por @jimmy.ogro<br>Exagerado por natureza<br>👉 Peça agora no App Mundo Rão<br>linktr.ee/ogrosteaks</div>
+        <ul class="tight">
+          <li><strong>Link quebrado/descontinuado:</strong> aponta pro App Mundo Rão, canal em desuso</li>
+          <li><strong>Falta de autoridade e clareza:</strong> não destaca a chancela de TV do Chef Jimmy nem os diferenciais do hambúrguer</li>
+          <li><strong>Destaques desatualizados:</strong> destaque "20% OFF" ocupa área nobre com oferta datada</li>
+        </ul>
+      </div>
+      <div class="block diag-card pos">
+        <span class="status-flag" style="background: var(--green-soft); color: var(--green);">Ativos de conteúdo</span>
+        <p class="block-title">Formatos com alta performance orgânica</p>
+        <ul class="tight">
+          <li><strong>Collabs com Chef Jimmy:</strong> vídeos com close no preparo e produto geram picos de salvamentos/envios (ex: queijo derretendo, 362 curtidas, 28 envios)</li>
+          <li><strong>Bastidores e rotina:</strong> conteúdo no escritório e cozinha gera alto engajamento em comentários (ex: 88 comentários em 136 curtidas)</li>
+          <li><strong>Séries autorais e memes:</strong> quadros ("Normal Parte 3") e estética "Windows antigo" trazem variedade visual ao feed</li>
+        </ul>
+      </div>
+    </div>
+    <p class="conclusion-line"><strong>Conclusão do diagnóstico:</strong> o perfil possui forte identidade de marca e boa aceitação do público, porém perde conversão devido à bio e destaques desatualizados.</p>
+
+    <p class="block-title" style="margin: 28px 0 10px;">Análise SWOT</p>
+    <div class="swot-grid">
+      <div class="swot-card pos">
+        <p class="swot-title">Forças (interno)</p>
+        <ul class="tight">
+          <li>Marca com forte apelo de personalidade e chef reconhecido em mídia nacional (Ana Maria Braga / TV Globo)</li>
+          <li>Diversidade de formatos com boa receptividade (memes, bastidores, rotina)</li>
+          <li>Collabs autorais com o Chef Jimmy têm taxa de engajamento acima da média</li>
+          <li>Comunidade engajada em comentários nos posts de vida real</li>
+        </ul>
+      </div>
+      <div class="swot-card neg">
+        <p class="swot-title">Fraquezas (interno)</p>
+        <ul class="tight">
+          <li>Base de seguidores reduzida frente aos principais concorrentes (18,2 mil vs 71 a 263 mil)</li>
+          <li>Bio apontando pra canal descontinuado (App Mundo Rão)</li>
+          <li>Volume de conteúdo em formato "food porn puro" abaixo dos concorrentes que lideram alcance</li>
+        </ul>
+      </div>
+      <div class="swot-card pos">
+        <p class="swot-title">Oportunidades (externo)</p>
+        <ul class="tight">
+          <li>Adotar linha constante de vídeos food porn/montagem pra acelerar alcance orgânico no Reels</li>
+          <li>Aprofundar o tom autoral "exagerado por natureza" na escrita e nos ganchos</li>
+          <li>Aproveitar a autoridade técnica e gastronômica do Chef Jimmy com quadros de indicação</li>
+          <li>Implementar link rastreável direto pro cardápio oficial de vendas</li>
+        </ul>
+      </div>
+      <div class="swot-card neg">
+        <p class="swot-title">Ameaças (externo)</p>
+        <ul class="tight">
+          <li>Entrada e expansão agressiva do Sampa Burger no Rio de Janeiro, com grande verba de mídia</li>
+          <li>Concorrentes (Ex-Touro e Sampa) dominando os formatos de maior viralização do nicho</li>
+          <li>Risco de perda de fatia de mercado por falta de clareza nas informações locais do perfil</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="block-title" style="margin: 28px 0 10px;">Sugestão de pilares de conteúdo</p>
+    <div class="pillar-grid">
+      <div class="pillar-card">
+        <span class="pillar-tag">Chancela</span>
+        <p class="pillar-title">1. Autoridade com o Chef Jimmy</p>
+        <p style="margin: 0 0 8px; color: var(--text-dim); font-size: 13px;">Transformar o conhecimento gastronômico do Jimmy em prova irrefutável de qualidade.</p>
+        <ul class="tight">
+          <li><strong>Por que esse ingrediente?</strong> Jimmy explicando a escolha do corte de carne, a porcentagem de gordura do blend e a selagem perfeita</li>
+          <li><strong>Dicas do Ogro:</strong> "o erro que você comete ao fazer hambúrguer em casa" (gera salvamentos e autoridade)</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-tag">Viralização</span>
+        <p class="pillar-title">2. Extreme Food Porn &amp; ASMR</p>
+        <p style="margin: 0 0 8px; color: var(--text-dim); font-size: 13px;">Vídeos altamente visuais e sensoriais focados na montagem do hambúrguer.</p>
+        <ul class="tight">
+          <li><strong>Closes viscerais:</strong> takes macro em 4K de molho escorrendo, queijo derretendo com maçarico e áudio crocante de bacon (ASMR)</li>
+          <li><strong>Ritmo acelerado:</strong> pão caindo, carne selando na chapa, prensa e finalização</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-tag">Conexão</span>
+        <p class="pillar-title">3. Os Favoritos do Chef</p>
+        <p style="margin: 0 0 8px; color: var(--text-dim); font-size: 13px;">Humanização e preferências pessoais do criador da marca.</p>
+        <ul class="tight">
+          <li><strong>"O burger que eu mais como":</strong> Jimmy montando o seu preferido pessoal e explicando a combinação de sabores</li>
+          <li><strong>Harmonização do Ogro:</strong> o acompanhamento e molho perfeitos pra cada hambúrguer do cardápio</li>
+        </ul>
+      </div>
+      <div class="pillar-card">
+        <span class="pillar-tag">Retenção</span>
+        <p class="pillar-title">4. Storytelling com Ganchos Virais</p>
+        <p style="margin: 0 0 8px; color: var(--text-dim); font-size: 13px;">Primeiros 3 segundos projetados pra prender a atenção e brincar com histórias reais.</p>
+        <ul class="tight">
+          <li><strong>Narrativas de bastidores:</strong> "a história secreta do burger que quase não entrou no cardápio..."</li>
+          <li><strong>Ganchos de provocação:</strong> "se você gosta de hambúrguer sem graça, não assista esse vídeo"</li>
+        </ul>
+      </div>
     </div>
   </section>
 
