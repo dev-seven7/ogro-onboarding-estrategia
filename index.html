@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Onboarding Ogro Steaks, Call 02</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #191512;
+    --surface: #232019;
+    --surface-2: #2b2620;
+    --border: #3d362c;
+    --text: #f2ebe0;
+    --text-dim: #a89d8a;
+    --ember: #d4622a;
+    --ember-soft: #3a2519;
+    --gold: #d9a53f;
+    --gold-soft: #362c18;
+    --green: #6bbf85;
+    --green-soft: #1f3025;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.6);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font-family: "Archivo", -apple-system, "Segoe UI", sans-serif; line-height: 1.55; }
+  .page { max-width: 980px; margin: 0 auto; padding: 56px 24px 100px; }
+
+  header.doc-head { margin-bottom: 48px; border-bottom: 2px solid var(--ember); padding-bottom: 32px; }
+  .eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ember); margin: 0 0 12px; font-weight: 500; }
+  h1 { font-family: "Bebas Neue", "Archivo", sans-serif; font-weight: 400; font-size: clamp(40px, 7vw, 66px); line-height: 0.98; letter-spacing: 0.005em; text-wrap: balance; margin: 0 0 14px; color: var(--text); }
+  .doc-sub { font-size: 16px; color: var(--text-dim); max-width: 66ch; margin: 0 0 20px; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .meta-chip { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; padding: 5px 12px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); color: var(--text-dim); }
+
+  section.part { margin-top: 52px; padding-top: 36px; border-top: 1px solid var(--border); }
+  .part-eyebrow { font-family: "IBM Plex Mono", monospace; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin: 0 0 6px; }
+  .part-title { font-family: "Bebas Neue", sans-serif; font-size: 34px; letter-spacing: 0.01em; margin: 0 0 22px; }
+
+  .block { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); padding: 22px 24px; margin-bottom: 16px; }
+  .block-title { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ember); margin: 0 0 10px; }
+  .block p { margin: 0; font-size: 14.5px; }
+  .block p + p { margin-top: 8px; }
+  .ghc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+  .ghc-label { font-family: "Bebas Neue", sans-serif; font-size: 20px; color: var(--gold); margin: 0 0 8px; letter-spacing: 0.02em; }
+  .status-flag { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 10.5px; letter-spacing: 0.04em; text-transform: uppercase; padding: 3px 9px; border-radius: 999px; margin-bottom: 10px; }
+  .status-flag.pending { background: var(--gold-soft); color: var(--gold); }
+  .status-flag.done { background: var(--green-soft); color: var(--green); }
+  ul.tight { margin: 8px 0 0; padding-left: 18px; font-size: 14.5px; }
+  ul.tight li { margin-bottom: 5px; }
+
+  .bench-grid { display: flex; flex-direction: column; gap: 14px; }
+  .bench-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--shadow); padding: 20px 24px; }
+  .bench-card.threat { border-color: var(--ember); }
+  .bench-head { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+  .bench-name { font-family: "Bebas Neue", sans-serif; font-size: 24px; letter-spacing: 0.01em; }
+  .bench-stat { font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+  .bench-desc { font-size: 14px; color: var(--text-dim); margin: 0; }
+  .tag-threat { display: inline-block; font-family: "IBM Plex Mono", monospace; font-size: 10px; letter-spacing: 0.05em; text-transform: uppercase; padding: 2px 8px; border-radius: 999px; background: var(--ember-soft); color: var(--ember); margin-left: 8px; vertical-align: middle; }
+
+  .insight-block { background: var(--ember-soft); border: 1.5px solid var(--ember); border-radius: 14px; padding: 24px 26px; margin-top: 24px; }
+  .insight-title { font-family: "Bebas Neue", sans-serif; font-size: 22px; color: var(--ember); margin: 0 0 12px; }
+
+  footer.doc-foot { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); font-family: "IBM Plex Mono", monospace; font-size: 12.5px; color: var(--text-dim); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+
+  @media (max-width: 560px) { .page { padding: 40px 16px 72px; } .block, .bench-card { padding: 18px; } }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="doc-head">
+    <p class="eyebrow">Onboarding Ogro Steaks · Full Service</p>
+    <h1>ESTRATÉGIA DE MARCA + BENCHMARK</h1>
+    <p class="doc-sub">Organizado a partir do que foi levantado na Call 01 (31/08) pra apresentar na Call 02 (09/09, 14h-16h).</p>
+    <div class="meta-row">
+      <span class="meta-chip">Call 02 · 09/09, 14h-16h</span>
+      <span class="meta-chip">cs-ogro-steaks#1</span>
+    </div>
+  </header>
+
+  <!-- POSICIONAMENTO -->
+  <section class="part">
+    <p class="part-eyebrow">Branding</p>
+    <p class="part-title">RESUMO DO POSICIONAMENTO</p>
+    <div class="ghc-grid">
+      <div class="block">
+        <p class="block-title">Nome + Tagline</p>
+        <p><strong>Ogro Steaks</strong> — Hamburgueria Artesanal</p>
+      </div>
+      <div class="block">
+        <p class="block-title">Slogan</p>
+        <p style="text-decoration: line-through; color: var(--text-dim);">"Exagerado por natureza" (temporada anterior)</p>
+        <p><span class="status-flag pending">Em aberto</span><br>"Para quem leva o hambúrguer a sério" — conceito novo, precisa ser desenvolvido e fechado</p>
+      </div>
+      <div class="block">
+        <p class="block-title">Mercado & ICP macro</p>
+        <p>Food Service · Hamburgueria Artesanal</p>
+        <p>25 a 55 anos, jovem adulto (consome conteúdo + compra). Busca recompensa (tá cansado, de saco cheio, saturado de Instagram) e confiança (produto padronizado)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GOLDEN CIRCLE -->
+  <section class="part">
+    <p class="part-eyebrow">Missão</p>
+    <p class="part-title">GOLDEN CIRCLE</p>
+    <div class="ghc-grid">
+      <div class="block">
+        <p class="ghc-label">Why</p>
+        <ul class="tight">
+          <li>Cansados de arriscar no delivery e comer hambúrguer ruim</li>
+          <li>Não tinham uma casa pra chamar de sua — hambúrguer honesto</li>
+          <li>Sempre devolver ao universo: projetos sociais (Igor tem o Instituto Prontos pra Servir)</li>
+        </ul>
+      </div>
+      <div class="block">
+        <p class="ghc-label">How</p>
+        <ul class="tight">
+          <li>Alto padrão de qualidade, não decepcionar quem já tá de saco cheio</li>
+          <li>Fazer o básico bem feito, não reinventar a roda</li>
+          <li>Bons relacionamentos com fornecedores e parceiros</li>
+          <li>Projeto de capacitação e padronização das franquias (Igor)</li>
+          <li>Mais people/experiência do que produto</li>
+        </ul>
+      </div>
+      <div class="block">
+        <p class="ghc-label">What</p>
+        <p>O hambúrguer é nossa recompensa, assim como queremos que seja pra você. Hambúrguer artesanal.</p>
+      </div>
+    </div>
+    <div class="block" style="margin-top: 14px;">
+      <p class="block-title">Objetivos</p>
+      <ul class="tight">
+        <li>Campanha de reconhecimento — marca ficou muito tempo só no orgânico, precisa de nova audiência + expansão</li>
+        <li>Melhorar posicionamento de branding & business, mais casual/amigável/universal</li>
+        <li>Recriar e reacender o storytelling</li>
+        <li>Aumentar % de canal próprio no delivery, com diferenciais pra migrar dos marketplaces</li>
+        <li>Preços + produtos diferenciados sazonais (mensal)</li>
+        <li>Aumentar LTV com programa de fidelidade + gamification</li>
+        <li>Migrar cardápio digital do Cardápio Web pro Databite</li>
+        <li>Budget marca/rede: início R$2 mil · budget venda/franqueado: a validar com a Alline</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- VISÃO -->
+  <section class="part">
+    <p class="part-eyebrow">Visão</p>
+    <p class="part-title">ONDE VAMOS CHEGAR</p>
+    <div class="block">
+      <p><strong>22 unidades + R$1 milhão de faturamento.</strong> Foco no Rio de Janeiro, expansão geográfica só depois de consolidar o território.</p>
+      <ul class="tight">
+        <li>Não virar fastfood de forma nenhuma</li>
+        <li>Manter o padrão de qualidade alto, independente da expansão</li>
+        <li>Cuidado extremo com o cliente, diferenciais competitivos no delivery</li>
+      </ul>
+      <p style="margin-top: 10px;"><span class="status-flag pending">Falta redigir</span> declaração de visão formal, em texto corrido pra apresentação</p>
+    </div>
+  </section>
+
+  <!-- PUV -->
+  <section class="part">
+    <p class="part-eyebrow">Proposta Única de Valor</p>
+    <p class="part-title">BENEFÍCIOS E DIFERENCIAIS</p>
+    <div class="ghc-grid">
+      <div class="block">
+        <p class="block-title">Benefícios</p>
+        <ul class="tight">
+          <li>Insumos de alta qualidade</li>
+          <li>Produtos sazonais</li>
+          <li>Parcerias com grandes marcas</li>
+        </ul>
+      </div>
+      <div class="block">
+        <p class="block-title">Diferenciais</p>
+        <ul class="tight">
+          <li>Entrega rápida</li>
+          <li>Alto padrão de qualidade</li>
+          <li>Autenticidade: na marca, no produto, na embalagem</li>
+          <li>Assinatura Jimmy + assinatura Igor por trás da marca</li>
+          <li>Potencial de marketing social</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ICP -->
+  <section class="part">
+    <p class="part-eyebrow">ICP & Persona</p>
+    <p class="part-title">QUEM É O CLIENTE</p>
+    <div class="block">
+      <p><strong>Meta:</strong> o cliente pensar na Ogro Steaks no carro, voltando pra casa.</p>
+      <div class="ghc-grid" style="margin-top: 14px;">
+        <div>
+          <p class="block-title">Objetivos</p>
+          <ul class="tight"><li>Comer um produto de ótima qualidade com preço bom</li></ul>
+        </div>
+        <div>
+          <p class="block-title">Dores</p>
+          <ul class="tight"><li>Cansado da rotina</li><li>Cansado do Instagram e das redes sociais</li></ul>
+        </div>
+        <div>
+          <p class="block-title">Desejos</p>
+          <ul class="tight"><li>Garantia de produto + serviço de qualidade</li></ul>
+        </div>
+      </div>
+      <p style="margin-top: 14px;"><span class="status-flag pending">Ideias levantadas</span> spot de rádio (Igor ajuda) · marketing off + ativações · "Ogro Steaks Day" (evento da marca, ainda precisa pensar melhor o formato)</p>
+    </div>
+  </section>
+
+  <!-- BENCHMARK -->
+  <section class="part">
+    <p class="part-eyebrow">Estudo de Mercado</p>
+    <p class="part-title">BENCHMARK DE CONCORRENTES</p>
+    <p style="color: var(--text-dim); font-size: 14.5px; max-width: 70ch; margin: -10px 0 24px;">Pesquisa feita em cima da lista levantada na Call 01, com dados reais de posicionamento, alcance e ticket médio.</p>
+
+    <p class="block-title" style="margin-bottom: 10px;">Concorrentes diretos</p>
+    <div class="bench-grid">
+      <div class="bench-card threat">
+        <div class="bench-head">
+          <span class="bench-name">Sampa Burger <span class="tag-threat">Ameaça em ascensão</span></span>
+          <span class="bench-stat">Fundada 2017</span>
+        </div>
+        <p class="bench-desc">Eleita 3ª melhor hamburgueria de SP. Grupo Suburbanos comprou e está expandindo agressivamente pro Rio via delivery (Méier, Tijuca, Botafogo, Freguesia), com plano de loja física. Modelo de franquia ativo, cardápio com opções de 100g a 160g e versões com duas carnes (Big Sampa, Nova York). É o concorrente que mais disputa o mesmo território que a Ogro quer ocupar.</p>
+      </div>
+      <div class="bench-card">
+        <div class="bench-head">
+          <span class="bench-name">T.T. Burger</span>
+          <span class="bench-stat">Desde 2013 · ticket ~R$50</span>
+        </div>
+        <p class="bench-desc">Posicionamento premium/autoral: cardápio assinado pelo chef Thomas Troisgros (estrelado Michelin). Pioneira do conceito 100% brasileiro de hamburgueria gourmet no Rio. 7 unidades (Arpoador, Barra, Botafogo, Centro, Ipanema, Leblon, Niterói).</p>
+      </div>
+      <div class="bench-card">
+        <div class="bench-head">
+          <span class="bench-name">LeMax Hamburgueria</span>
+          <span class="bench-stat">32K seguidores</span>
+        </div>
+        <p class="bench-desc">Se posiciona como "a hamburgueria número 1 do Rio". Carnes Angus premium, modelo de franquia com contas de Instagram próprias por unidade (Tijuca, Barra). Concorrente direto de porte comparável ao que a Ogro busca.</p>
+      </div>
+      <div class="bench-card">
+        <div class="bench-head">
+          <span class="bench-name">Ex-Touro</span>
+          <span class="bench-stat">71K seguidores</span>
+        </div>
+        <p class="bench-desc">Multi-estado (RJ, SP, MG, CE, PE, PB, RS, SC, PR). Premiada 2x pelo Veja Rio Comer e Beber. Pedidos via site próprio + iFood, canal próprio forte.</p>
+      </div>
+      <div class="bench-card">
+        <div class="bench-head">
+          <span class="bench-name">Dom Burgoni</span>
+          <span class="bench-stat">Perfil a confirmar</span>
+        </div>
+        <p class="bench-desc"><span class="status-flag pending">Confirmar com o Igor/Bárbara</span> — existem vários perfis parecidos ("Dom Burger", "Don Burgone", "Dom Burguer de Respeito"), nenhum bateu com segurança na pesquisa. Antes de usar como referência formal, vale confirmar o nome/perfil exato na call.</p>
+      </div>
+    </div>
+
+    <p class="block-title" style="margin: 26px 0 10px;">Referências / inspiração</p>
+    <div class="bench-grid">
+      <div class="bench-card">
+        <div class="bench-head">
+          <span class="bench-name">Goiko (Espanha)</span>
+          <span class="bench-stat">~600K seguidores</span>
+        </div>
+        <p class="bench-desc">Cresceu de 50K pra 400K seguidores em 2 anos com marketing 100% orgânico de influenciadores (não paga collab) e investe menos de 1% do budget em social, contra 7% da média do setor. Não faz marketing pra vender hambúrguer, faz marketing pra construir comunidade. Estética retrô/vintage "instagramável" nas lojas.</p>
+      </div>
+      <div class="bench-card">
+        <div class="bench-head">
+          <span class="bench-name">Pão com Carne (SP)</span>
+          <span class="bench-stat">262K seguidores</span>
+        </div>
+        <p class="bench-desc">Tagline "Burger sem frescura, desde 2015". Eleito melhor hambúrguer do Brasil pela Prazeres da Mesa. Ticket médio R$30-38 por hambúrguer completo. Casinha em Itaim Bibi sempre lotada — autenticidade de lugar pequeno e história de fundação como parte do storytelling.</p>
+      </div>
+      <div class="bench-card">
+        <div class="bench-head">
+          <span class="bench-name">Holy Burger (SP)</span>
+          <span class="bench-stat">385K seguidores</span>
+        </div>
+        <p class="bench-desc">Se autodenomina "2º melhor hambúrguer do mundo" — posicionamento ousado, sem meio-termo. Forte volume e consistência de conteúdo.</p>
+      </div>
+      <div class="bench-card">
+        <div class="bench-head">
+          <span class="bench-name">Alcides (Vila Velha/ES)</span>
+          <span class="bench-stat">43K seguidores</span>
+        </div>
+        <p class="bench-desc">Inspirado na cultura argentina, ambiente e identidade visual muito próprios. Mercado menor que o Rio, mas prova que identidade forte gera alcance desproporcional ao tamanho da praça.</p>
+      </div>
+      <div class="bench-card">
+        <div class="bench-head">
+          <span class="bench-name">John's Burger (SP, Zona Norte)</span>
+          <span class="bench-stat">Voto popular Guia do Hambúrguer 2018/2019</span>
+        </div>
+        <p class="bench-desc">Diferencial de processo: tudo preparado na frente do cliente, nada feito com antecedência. Transparência de produção como parte central da comunicação.</p>
+      </div>
+    </div>
+
+    <div class="insight-block">
+      <p class="insight-title">O que isso significa pra Ogro</p>
+      <ul class="tight" style="font-size: 14.5px;">
+        <li><strong>Ticket médio do setor gourmet/artesanal</strong> gira entre R$30 e R$50 por hambúrguer completo — referência pra precificação e percepção de valor</li>
+        <li><strong>Marketing orgânico com influenciadores</strong> (sem pagar collab) é o que mais funciona pros grandes players (Goiko é o caso mais extremo, mas também vale pra Ex-Touro e Pão com Carne)</li>
+        <li><strong>Autenticidade e transparência</strong> aparecem como padrão entre quem se destaca: história de fundação (Pão com Carne), processo à vista (John's Burger), assinatura de chef (T.T. Burger) — a Ogro tem isso pronto com Jimmy e Igor, só falta comunicar</li>
+        <li><strong>Sampa Burger é a ameaça real</strong>: mesma faixa de porte que a Ogro busca, entrando no Rio agora, com franquia ativa e expansão agressiva por delivery — território direto de disputa</li>
+        <li><strong>Nenhum concorrente direto no Rio ocupa o território "masculino/exagerado"</strong> que já está no arquétipo da marca (cara comum + amante + rebelde) — pode ser o espaço de posicionamento mais claro pra Ogro se diferenciar</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="doc-foot">
+    <span>Onboarding Ogro Steaks · Estratégia + Benchmark</span>
+    <span>09/09/2026</span>
+  </footer>
+</div>
+
+</body>
+</html>
